@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const artist = require('./api/artist');
 const get_artist = require('./api/get_artist');
+const artist_details= require('./api/artist_data');
 
 // middleware
 app.use(bodyParser.json());
@@ -15,6 +16,7 @@ app.use(function (req, res, next) {
 // routes
 app.use('/', artist);
 app.use('/', get_artist);
+app.use('/',artist_details);
 
 const Port = 5000;
 app.listen(Port, () => {
