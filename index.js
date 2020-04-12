@@ -1,10 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const {MongoClient} = require('mongodb');
 const artist= require('./api/artist');
-
-// database connection
 
 // middleware
 app.use(bodyParser.json());
