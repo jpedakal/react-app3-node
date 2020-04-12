@@ -11,14 +11,18 @@ MongoClient.connect(URL, (err, client) => {
     db = client.db(dbName);
 });
 
-exports.fetchData = (collectionName, data) => {
-   
+exports.fetchData = (collectionName) => {
+    return new Promise((reject, resolve) => {
+        db.collection(collectionName).find().toArray()
+            .then(doc => resolve(doc))
+            .catch(err => reject(err))
+    })
 };
 
 exports.createData = (collectionName, data) => {
     return new Promise((reject, resolve) => {
         db.collection(collectionName).insertOne(data)
             .then(doc => resolve(doc))
-            .catch(err=> reject(err))
+            .catch(err => reject(err))
     })
 };
