@@ -1,7 +1,7 @@
 const express = require('express');
 const router= express.Router();
 
-router.get('/artist',(req,res)=>{
+router.post('/artist',(req,res)=>{
    res.json('Artist data')
 });
 
