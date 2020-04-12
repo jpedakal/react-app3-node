@@ -7,6 +7,10 @@ const get_artist = require('./api/get_artist');
 // middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    next();
+});
 
 // routes
 app.use('/', artist);
