@@ -26,3 +26,11 @@ exports.createData = (collectionName, data) => {
             .catch(err => reject(err))
     })
 };
+
+exports.fetchOnedata = (collectionName, payload) => {
+    return new Promise((reject, resolve) => {
+        db.collection(collectionName).findOne(payload)
+            .then(doc => resolve(doc))
+            .catch(err => reject(err))
+    })
+};
